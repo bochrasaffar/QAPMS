@@ -50,9 +50,9 @@ Question Answer Pipeline Model Serving
 
 1. Build image
 
-`docker build --tag QAPMS:0.1.0 -f docker/torchserve/DockerfileProd` (Or DockerfileDev)
+`docker build --tag qapms:0.1.0 -f docker/torchserve/DockerfileProd` (Or DockerfileDev)
 
 2. run image
 
-`docker run -p 80:80 QAPMS:0.1.0` (Expose the port you are using depending on dev and prod)
+`docker run -p 80:80 qapms:0.1.0` (Expose the port you are using depending on dev and prod)
 
