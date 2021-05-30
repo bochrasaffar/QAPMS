@@ -1,0 +1,3 @@
+#torchserve --ncs --start --ts-config config/dev-ts-config.py --model-store model_store --models reader=reader.mar
+#torchserve --ncs --start --ts-config config/dev-ts-config.py --model-store model_store --models QA=QA.mar
+torchserve --ncs --start --ts-config config/dev-ts-config.py --model-store model_store --models all

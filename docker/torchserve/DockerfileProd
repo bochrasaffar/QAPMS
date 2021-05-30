@@ -1,0 +1,7 @@
+FROM mo5mami/torchserve_env:latest
+MAINTAINER mami.mokhtar123@gmail.com
+COPY ./ /serve
+WORKDIR /serve
+EXPOSE 80
+RUN ./prepare_prod
+ENTRYPOINT ./run_prod
