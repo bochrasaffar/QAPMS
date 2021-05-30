@@ -1,4 +1,4 @@
-FROM mo5mami/torchserve_env:latest
+FROM mo5mami/qa_env:latest
 MAINTAINER mami.mokhtar123@gmail.com
 COPY ./ /serve
 WORKDIR /serve

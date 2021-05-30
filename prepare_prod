@@ -1,5 +1,9 @@
 #torch-model-archiver --model-name QA --version 1.0 --model-file QA/models/model_definition.py --serialized-file QA/models/model_definition.py --handler QA/handler.py --export-path model_store/ --extra-files QA/* -f
 #torch-model-archiver --model-name QA --version 1.0 --model-file QA/models/model_definition.py --serialized-file QA/roberta-base-squad2/config.json --handler QA/handler.py --export-path model_store/ --extra-files QA/faiss.db,QA/faiss.index -f
+cd QA && \
+curl https://modelsstore.blob.core.windows.net/qa-pfa/faiss.db --output faiss.db && \
+curl https://modelsstore.blob.core.windows.net/qa-pfa/faiss.index --output faiss.index && \
+cd ../
 torch-model-archiver --model-name reader --version 1.0 --model-file reader/models/model_definition.py --serialized-file reader/models/model_definition.py --handler reader/handler.py --export-path model_store/  --extra-files reader/config.py,reader/utils.py,reader/reader.py,reader/__init__.py -f
 torch-model-archiver --model-name QA --version 1.0 --model-file QA/models/model_definition.py --serialized-file QA/models/model_definition.py --handler QA/handler.py --export-path model_store/ --extra-files QA/faiss.db,QA/faiss.index,QA/utils.py,QA/config.py,QA/QA.py,QA/__init__.py -f
 python reader/load_model.py
