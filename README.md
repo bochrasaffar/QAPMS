@@ -50,7 +50,7 @@ Question Answer Pipeline Model Serving
 
 1. Build image
 
-`docker build --tag qapms:0.1.0 -f docker/torchserve/DockerfileProd` (Or DockerfileDev)
+`docker build --tag qapms:0.1.0 -f docker/torchserve/DockerfileProd .` (Or DockerfileDev)
 
 2. run image
 
