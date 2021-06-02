@@ -5,7 +5,7 @@ import copy
 import random
 import yaml
 from config import inject_config
-from utils import measure , jsonify
+from utils import measure , jsonify , load_json
 from QA import QA, QAInference
 
 
@@ -51,7 +51,11 @@ class ModelGenerator(object):
         """
          Preprocess image
         """
-        self.question = bytes(data[0]["question"]).decode()
+        if "body" in data[0]:
+            data[0] = load_json(bytes(data[0]["body"]).decode())
+            self.question = data[0]["question"]
+        else:
+            self.question = bytes(data[0]["question"]).decode()
         return self.question
 
     @measure

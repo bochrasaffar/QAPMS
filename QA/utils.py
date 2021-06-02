@@ -20,3 +20,7 @@ def measure(func):
 def jsonify(inference_output):
     json_result = json.dumps(inference_output , indent = 4)
     return [json_result]
+
+def load_json(data):
+    result = json.loads(data)
+    return result

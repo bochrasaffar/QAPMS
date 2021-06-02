@@ -6,7 +6,7 @@ import random
 from functools import wraps
 import yaml
 from config import inject_config
-from utils import measure, jsonify
+from utils import measure, jsonify , load_json
 from reader import Reader
 
 
@@ -48,9 +48,13 @@ class ModelGenerator(object):
         """
          Preprocess received data
         """
-        
-        self.question = bytes(data[0]["question"]).decode()
-        self.context = bytes(data[0]["context"]).decode()
+        if "body" in data[0]:
+            data[0] = load_json(bytes(data[0]["body"]).decode())
+            self.question = data[0]["question"]
+            self.context = data[0]["context"]
+        else:
+            self.question = bytes(data[0]["question"]).decode()
+            self.context = bytes(data[0]["context"]).decode()
         #print("question : ",self.question)
         return {"question" : self.question , "context" : self.context}
 
@@ -77,6 +81,7 @@ _service = ModelGenerator()
 
 @measure
 def handle(data, context):
+    print("data : ",data)
     if not _service.initialized:
         _service.initialize(context)
 

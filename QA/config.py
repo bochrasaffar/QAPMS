@@ -7,6 +7,7 @@ _C = CN()
 
 _C.dense_retriever = CN()
 _C.dense_retriever.ce_path = "facebook/dpr-ctx_encoder-single-nq-base"
+#_C.dense_retriever.ce_path = None
 _C.dense_retriever.qe_path = "facebook/dpr-question_encoder-single-nq-base"
 _C.dense_retriever.name = "DPR"
 _C.dense_retriever.max_seq_len_query=64
