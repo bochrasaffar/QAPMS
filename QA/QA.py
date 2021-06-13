@@ -33,7 +33,7 @@ class QA:
   def load_sparse_retriever_store(self,config=None):
      #self.sparse_document_store = ElasticsearchDocumentStore(host="es-7a4a10.es.eastus2.azure.elastic-cloud.com",port="9243", username="elastic", password="hhCSjv0QUUvlWiNFYfja4vO9", index="document",
      #                                       scheme='https',create_index=False, )
-     self.sparse_document_store = ElasticsearchDocumentStore(host="pfa-qa.es.us-west1.gcp.cloud.es.io:9243",port="9243", username="elastic", password="VYFT5cdDE6lvqKWBzRiHnZ4k", index="document",
+     self.sparse_document_store = ElasticsearchDocumentStore(host="pfa-qa.es.us-west1.gcp.cloud.es.io",port="9243", username="elastic", password="VYFT5cdDE6lvqKWBzRiHnZ4k", index="document",
                                             scheme='https',create_index=False, )
      return self.sparse_document_store
 
